@@ -1,0 +1,9 @@
+{
+  "name": "Free XIRR Calculator",
+  "short_name": "XIRR Calculator",
+  "description": "Free browser-based XIRR calculator for SIP and mutual fund returns.",
+  "start_url": "/xirr-calculator/",
+  "display": "standalone",
+  "background_color": "#eef3f7",
+  "theme_color": "#0f766e"
+}

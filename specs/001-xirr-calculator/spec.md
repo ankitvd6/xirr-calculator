@@ -95,6 +95,30 @@ without requiring financial terminology knowledge.
 
 ---
 
+### User Story 4 - Discover the Calculator from Search (Priority: P3)
+
+A user searching for an XIRR calculator can understand the page purpose from
+search results and land on crawlable, useful calculator content.
+
+**Why this priority**: The app is publicly hosted, so it needs clear metadata,
+indexable content, and sitemap/robots support for search discovery.
+
+**Independent Test**: Can be tested by inspecting the static HTML and published
+assets for title, description, canonical URL, structured data, crawlable guide
+content, FAQ content, sitemap, and robots file.
+
+**Acceptance Scenarios**:
+
+1. **Given** the page is opened by a crawler, **When** it reads the document
+   head, **Then** it finds a descriptive title, meta description, canonical URL,
+   index/follow robots directive, and social preview metadata.
+2. **Given** the page body is indexed, **When** crawler-visible text is read,
+   **Then** it includes useful XIRR, SIP, monthly/yearly payment, and FAQ
+   content without requiring JavaScript execution.
+3. **Given** search crawlers request discovery assets, **When** they fetch
+   `/robots.txt` and `/sitemap.xml`, **Then** both point to the canonical
+   GitHub Pages URL.
+
 ### Edge Cases
 
 - User fills all four core values instead of leaving exactly one blank.
@@ -107,6 +131,8 @@ without requiring financial terminology knowledge.
 - Monthly or yearly schedules produce different result values for the same
   visible inputs.
 - Start-of-period and end-of-period schedules produce different result values.
+- Search crawler reads the page without running JavaScript.
+- The site is served under the `/xirr-calculator/` GitHub Pages path.
 
 ## Requirements *(mandatory)*
 
@@ -140,6 +166,15 @@ without requiring financial terminology knowledge.
 - **FR-014**: The system MUST be publishable as a static website on free GitHub
   Pages from a public repository.
 - **FR-015**: The system MUST provide local run, test, and publish instructions.
+- **FR-016**: The system MUST include a descriptive page title, meta
+  description, canonical URL, robots directive, and social preview metadata.
+- **FR-017**: The system MUST include crawlable explanatory content for XIRR,
+  SIP final amount, SIP amount, duration, monthly/yearly payment assumptions,
+  and XIRR versus CAGR.
+- **FR-018**: The system MUST include FAQ structured data and matching visible
+  FAQ content.
+- **FR-019**: The system MUST include `robots.txt`, `sitemap.xml`, and a web
+  manifest that reference the canonical GitHub Pages site.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -166,6 +201,8 @@ without requiring financial terminology knowledge.
   or paid service.
 - **SC-005**: The published site can be served as static files through GitHub
   Pages.
+- **SC-006**: Automated tests verify the presence of core SEO metadata,
+  structured data, crawlable guide content, robots file, and sitemap file.
 
 ## Assumptions
 

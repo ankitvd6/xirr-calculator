@@ -3,17 +3,103 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XIRR Calculator</title>
+    <title>Free XIRR Calculator for SIP and Mutual Fund Returns</title>
+    <meta name="description" content="Free XIRR calculator for SIP, mutual fund and investment returns. Enter any three values to calculate SIP amount, duration, XIRR or final amount.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0f766e">
+    <link rel="canonical" href="https://ankitvd6.github.io/xirr-calculator/">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f766e'/%3E%3Cpath d='M14 42h36M18 38l9-10 8 7 12-17' fill='none' stroke='white' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link rel="manifest" href="./site.webmanifest">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free XIRR Calculator for SIP and Mutual Fund Returns">
+    <meta property="og:description" content="Calculate XIRR, final amount, SIP amount or duration for monthly and yearly investments.">
+    <meta property="og:url" content="https://ankitvd6.github.io/xirr-calculator/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Free XIRR Calculator for SIP and Mutual Fund Returns">
+    <meta name="twitter:description" content="Calculate XIRR, final amount, SIP amount or duration for monthly and yearly investments.">
     <link rel="stylesheet" href="./src/styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebApplication",
+            "@id": "https://ankitvd6.github.io/xirr-calculator/#app",
+            "name": "Free XIRR Calculator",
+            "url": "https://ankitvd6.github.io/xirr-calculator/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "Web",
+            "description": "A free browser-based XIRR calculator for SIP, mutual fund and investment return planning.",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "INR"
+            },
+            "featureList": [
+              "Calculate XIRR from contribution amount, duration and final amount",
+              "Calculate final amount from SIP amount, duration and annualized return",
+              "Calculate required SIP amount or duration",
+              "Supports monthly and yearly payment schedules"
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://ankitvd6.github.io/xirr-calculator/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is XIRR?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "XIRR is an annualized return measure for investments with cashflows on different dates, such as SIP payments or irregular mutual fund transactions."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How is XIRR different from CAGR?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "CAGR works for one starting value and one ending value. XIRR is better when money is invested or withdrawn multiple times on different dates."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can this calculator estimate final amount from SIP and XIRR?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Enter the SIP amount, duration and annualized return, leave final amount blank, then click Calculate."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://ankitvd6.github.io/xirr-calculator/#breadcrumbs",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "XIRR Calculator",
+                "item": "https://ankitvd6.github.io/xirr-calculator/"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <main class="app-shell">
-      <section class="calculator-panel" aria-labelledby="page-title">
+    <main>
+      <section class="app-shell" aria-label="XIRR calculator tool">
+        <section class="calculator-panel" aria-labelledby="page-title">
         <div class="title-row">
           <div>
             <p class="eyebrow">Personal finance calculator</p>
             <h1 id="page-title">XIRR Calculator</h1>
+            <p class="lede">
+              Free XIRR calculator for SIP, mutual fund and investment returns.
+              Fill any three values to calculate the missing fourth value.
+            </p>
           </div>
           <span class="mode-pill">Browser only</span>
         </div>
@@ -84,14 +170,98 @@
             <button type="button" id="reset-button" class="secondary">Reset</button>
           </div>
         </form>
+        </section>
+
+        <section class="result-panel" aria-labelledby="result-title">
+          <h2 id="result-title">Result</h2>
+          <div id="message" class="message" role="status" aria-live="polite">
+            Leave exactly one main field empty, then calculate.
+          </div>
+          <div id="result" class="result-card" aria-live="polite" hidden></div>
+        </section>
       </section>
 
-      <section class="result-panel" aria-labelledby="result-title">
-        <h2 id="result-title">Result</h2>
-        <div id="message" class="message" role="status" aria-live="polite">
-          Leave exactly one main field empty, then calculate.
+      <section class="seo-content" aria-labelledby="guide-title">
+        <div class="content-wrap">
+          <p class="eyebrow">XIRR guide</p>
+          <h2 id="guide-title">Calculate SIP XIRR, final amount, SIP amount or duration</h2>
+          <p>
+            This XIRR calculator helps estimate annualized returns for SIPs,
+            mutual funds and other investments where cashflows happen over time.
+            You can enter any three values: regular investment amount, duration,
+            XIRR and final amount. The calculator solves the missing fourth value
+            using the selected payment frequency and timing.
+          </p>
+
+          <div class="content-grid">
+            <article class="info-block">
+              <h3>What is XIRR?</h3>
+              <p>
+                XIRR is the annualized return for cashflows that happen on
+                different dates. It is useful for SIPs because every monthly or
+                yearly investment gets a different amount of time to grow.
+              </p>
+            </article>
+
+            <article class="info-block">
+              <h3>XIRR vs CAGR</h3>
+              <p>
+                CAGR is useful when there is one starting amount and one ending
+                amount. XIRR is better for SIP and mutual fund returns because
+                money is invested in multiple installments.
+              </p>
+            </article>
+
+            <article class="info-block">
+              <h3>Monthly and yearly SIP support</h3>
+              <p>
+                Select monthly or yearly frequency and choose whether payments
+                happen at the start or end of the period. Those assumptions can
+                change the final amount or XIRR result.
+              </p>
+            </article>
+          </div>
         </div>
-        <div id="result" class="result-card" aria-live="polite" hidden></div>
+      </section>
+
+      <section class="faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="content-wrap">
+          <p class="eyebrow">Questions</p>
+          <h2 id="faq-title">XIRR Calculator FAQ</h2>
+          <div class="faq-list">
+            <details open>
+              <summary>How do I calculate XIRR for SIP returns?</summary>
+              <p>
+                Enter your SIP amount, duration and final amount, then leave the
+                XIRR field blank. The calculator generates dated cashflows and
+                estimates the annualized XIRR.
+              </p>
+            </details>
+            <details>
+              <summary>Can I calculate final amount if I know SIP and XIRR?</summary>
+              <p>
+                Yes. Enter the SIP amount, duration and expected XIRR, then
+                leave final amount blank. The calculator estimates the final
+                amount using the selected monthly or yearly schedule.
+              </p>
+            </details>
+            <details>
+              <summary>Does monthly or yearly payment frequency affect XIRR?</summary>
+              <p>
+                Yes. XIRR depends on payment dates. Monthly and yearly
+                contributions create different cashflow dates, so the result can
+                change even when the visible amount and duration look similar.
+              </p>
+            </details>
+            <details>
+              <summary>Is this calculator investment advice?</summary>
+              <p>
+                No. It is a planning tool for estimates only. Actual investment
+                returns depend on market performance, fees, taxes and timing.
+              </p>
+            </details>
+          </div>
+        </div>
       </section>
     </main>
 

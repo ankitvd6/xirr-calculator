@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ankitvd6.github.io/xirr-calculator/sitemap.xml

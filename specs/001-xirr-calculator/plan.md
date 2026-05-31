@@ -13,7 +13,9 @@ the four core values and calculates the missing fourth value. The app will model
 regular monthly or yearly contributions with start/end timing, generate dated
 cashflows, solve the missing value, and show a plain-language breakdown. The
 site will live under `docs/` so it can be published by GitHub Pages with no
-backend or paid hosting.
+backend or paid hosting. The static page will also include search-friendly
+metadata, crawlable XIRR guide content, FAQ structured data, `robots.txt`, and
+`sitemap.xml` for the canonical GitHub Pages URL.
 
 ## Technical Context
 
@@ -24,8 +26,8 @@ for automated tests
 
 **Storage**: N/A; no server storage and no browser persistence for MVP
 
-**Testing**: `node --test` for calculator logic and validation behavior;
-manual browser verification for UI workflows
+**Testing**: `node --test` for calculator logic, validation behavior, and SEO
+metadata/assets; manual browser verification for UI workflows
 
 **Target Platform**: Current desktop and mobile browsers; static GitHub Pages
 hosting
@@ -39,7 +41,8 @@ usable on mobile without layout overlap
 no external analytics; all financial assumptions shown to the user
 
 **Scale/Scope**: One public calculator page, four missing-value modes, monthly
-and yearly schedules, start/end timing, INR default formatting
+and yearly schedules, start/end timing, INR default formatting, SEO metadata
+and static crawler assets
 
 ## Constitution Check
 
@@ -79,13 +82,17 @@ specs/001-xirr-calculator/
 ```text
 docs/
 ├── index.html
+├── robots.txt
+├── sitemap.xml
+├── site.webmanifest
 └── src/
     ├── calculator.js
     ├── main.js
     └── styles.css
 
 tests/
-└── calculator.test.js
+├── calculator.test.js
+└── seo.test.js
 
 .github/
 └── workflows/
@@ -96,8 +103,9 @@ README.md
 ```
 
 **Structure Decision**: Use a dependency-light static web app. `docs/` contains
-the publishable GitHub Pages site, `tests/` verifies calculation behavior, and
-Spec Kit artifacts stay under `specs/001-xirr-calculator/`.
+the publishable GitHub Pages site and crawler assets, `tests/` verifies
+calculation behavior and SEO-critical markup, and Spec Kit artifacts stay under
+`specs/001-xirr-calculator/`.
 
 ## Design Flow
 

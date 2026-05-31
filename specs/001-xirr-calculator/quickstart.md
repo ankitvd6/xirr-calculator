@@ -28,15 +28,27 @@ Purpose: serve the static GitHub Pages site locally at
 5. Clear annualized return, enter a final amount, click Calculate, and verify
    the app calculates XIRR.
 6. Change frequency or timing and verify the result changes.
+7. Inspect the page source and verify the SEO title, meta description,
+   canonical URL, JSON-LD structured data, guide content, and FAQ content are
+   present in the static HTML.
+
+## SEO Asset Verification
+
+```sh
+npm test
+```
+
+Purpose: runs calculator tests and verifies SEO-critical static assets such as
+metadata, structured data, `robots.txt`, and `sitemap.xml`.
 
 ## Publish With GitHub Pages
 
 ```sh
-git push origin codex/001-xirr-calculator
+git push origin main
 ```
 
-Purpose: push the local feature branch to GitHub after the user approves remote
-Git actions.
+Purpose: push the approved local changes to the GitHub repository's default
+branch.
 
 After merge to the default branch, enable Pages with GitHub Actions or configure
 the repository Pages source to the `docs/` folder. The included workflow

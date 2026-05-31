@@ -126,6 +126,22 @@ fields appear; submit invalid inputs and verify clear errors appear.
 
 ---
 
+## Phase 7: SEO & Search Discoverability
+
+**Purpose**: Make the published GitHub Pages site easier for search engines and
+social previews to understand.
+
+- [x] T035 Add SEO title, description, canonical URL, robots directive, social metadata, and JSON-LD structured data to `docs/index.html`
+- [x] T036 Add crawlable XIRR guide and FAQ content to `docs/index.html`
+- [x] T037 Add responsive guide and FAQ styles to `docs/src/styles.css`
+- [x] T038 Add crawler discovery assets in `docs/robots.txt`, `docs/sitemap.xml`, and `docs/site.webmanifest`
+- [x] T039 Add automated SEO assertions in `tests/seo.test.js`
+- [x] T040 Update Spec Kit docs for SEO scope in `specs/001-xirr-calculator/spec.md`, `specs/001-xirr-calculator/plan.md`, and `specs/001-xirr-calculator/tasks.md`
+- [x] T041 Run the full automated test suite including calculator and SEO tests
+- [x] T042 Verify the updated static page in a browser before publishing
+
+---
+
 ## Dependencies & Execution Order
 
 ### Phase Dependencies
@@ -138,6 +154,8 @@ fields appear; submit invalid inputs and verify clear errors appear.
 - **User Story 3 (Phase 5)**: Depends on US1 result objects and can be verified
   after US1.
 - **Polish (Phase 6)**: Depends on all selected user stories.
+- **SEO (Phase 7)**: Depends on the calculator page structure and publishing
+  URL being stable.
 
 ### User Story Dependencies
 
@@ -152,6 +170,8 @@ fields appear; submit invalid inputs and verify clear errors appear.
   assumptions.
 - T025-T026 can be drafted together because validation and breakdown assertions
   cover different behavior.
+- T035-T038 can be drafted together because metadata, crawlable content, and
+  discovery assets are independent static-site changes.
 
 ## Implementation Strategy
 
