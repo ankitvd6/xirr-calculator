@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XIRR Calculator</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f766e'/%3E%3Cpath d='M14 42h36M18 38l9-10 8 7 12-17' fill='none' stroke='white' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="./src/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="calculator-panel" aria-labelledby="page-title">
+        <div class="title-row">
+          <div>
+            <p class="eyebrow">Personal finance calculator</p>
+            <h1 id="page-title">XIRR Calculator</h1>
+          </div>
+          <span class="mode-pill">Browser only</span>
+        </div>
+
+        <form id="calculator-form" class="calculator-form" novalidate>
+          <div class="field-grid">
+            <label class="field">
+              <span>Contribution amount</span>
+              <input id="contributionAmount" name="contributionAmount" inputmode="decimal" placeholder="20000">
+            </label>
+
+            <div class="duration-row">
+              <label class="field">
+                <span>Duration</span>
+                <input id="durationValue" name="durationValue" inputmode="decimal" placeholder="2">
+              </label>
+              <label class="field">
+                <span>Unit</span>
+                <select id="durationUnit" name="durationUnit">
+                  <option value="years">Years</option>
+                  <option value="months">Months</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Annualized return / XIRR %</span>
+              <input id="annualReturnPercent" name="annualReturnPercent" inputmode="decimal" placeholder="22">
+            </label>
+
+            <label class="field">
+              <span>Final amount</span>
+              <input id="finalAmount" name="finalAmount" inputmode="decimal" placeholder="Leave blank">
+            </label>
+          </div>
+
+          <fieldset class="segmented-group">
+            <legend>Payment frequency</legend>
+            <label>
+              <input type="radio" name="frequency" value="monthly" checked>
+              <span>Monthly</span>
+            </label>
+            <label>
+              <input type="radio" name="frequency" value="yearly">
+              <span>Yearly</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="segmented-group">
+            <legend>Payment timing</legend>
+            <label>
+              <input type="radio" name="timing" value="end" checked>
+              <span>End</span>
+            </label>
+            <label>
+              <input type="radio" name="timing" value="start">
+              <span>Start</span>
+            </label>
+          </fieldset>
+
+          <label class="field start-date-field">
+            <span>Start date</span>
+            <input id="startDate" name="startDate" type="date">
+          </label>
+
+          <div class="actions">
+            <button type="submit">Calculate</button>
+            <button type="button" id="reset-button" class="secondary">Reset</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="result-panel" aria-labelledby="result-title">
+        <h2 id="result-title">Result</h2>
+        <div id="message" class="message" role="status" aria-live="polite">
+          Leave exactly one main field empty, then calculate.
+        </div>
+        <div id="result" class="result-card" aria-live="polite" hidden></div>
+      </section>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
